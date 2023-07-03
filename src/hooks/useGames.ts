@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 import apiClient from "../services /api/api-client";
 import { CanceledError } from "axios";
 
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
 export interface Games {
   id: number;
   name: string;
   background_image: string;
+  metacritic: number;
+  parent_platforms: { platform: Platform }[];
 }
 interface FetchGamesResponse {
   count: number;
@@ -19,7 +26,7 @@ const useGames = () => {
   useEffect(() => {
     const controller = new AbortController();
     apiClient
-      .get<FetchGamesResponse>("/gamessss", { signal: controller.signal })
+      .get<FetchGamesResponse>("/gamesss", { signal: controller.signal })
       .then((res) => {
         setGames(res.data.results);
       })
