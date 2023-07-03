@@ -26,7 +26,7 @@ const useGames = () => {
   useEffect(() => {
     const controller = new AbortController();
     apiClient
-      .get<FetchGamesResponse>("/gamesss", { signal: controller.signal })
+      .get<FetchGamesResponse>("/games", { signal: controller.signal })
       .then((res) => {
         setGames(res.data.results);
       })
