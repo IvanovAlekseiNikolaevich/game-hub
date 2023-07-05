@@ -4,7 +4,6 @@ import {
   List,
   ListItem,
   Image,
-  Text,
   Skeleton,
   Stack,
   Button,
@@ -13,9 +12,10 @@ import getCroppedImages from "../services /api/image-url";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   const skeleton = [1, 2, 3, 4, 5, 6];
   if (error) return null;
@@ -40,6 +40,7 @@ const GenreList = ({ onSelectedGenre }: Props) => {
                 src={getCroppedImages(genre.image_background)}
               ></Image>
               <Button
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 fontSize="lg"
                 variant={"link"}
                 onClick={() => onSelectedGenre(genre)}
