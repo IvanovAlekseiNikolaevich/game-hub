@@ -6,7 +6,6 @@ import {
   Image,
   Text,
   Skeleton,
-  SkeletonText,
   Stack,
 } from "@chakra-ui/react";
 import getCroppedImages from "../services /api/image-url";
@@ -20,7 +19,7 @@ const GenreList = () => {
       {isLoading &&
         skeleton.map((skeleton) => {
           return (
-            <Stack paddingY={2}>
+            <Stack paddingY={2} key={skeleton}>
               <Skeleton height="30px" borderRadius={5} />
             </Stack>
           );
