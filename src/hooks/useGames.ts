@@ -13,6 +13,6 @@ export interface Games {
   parent_platforms: { platform: Platform }[];
 }
 
-const useGames = () => useData<Games>("/games");
+const useGames = () => useData<Games>("/gamessss");
 
 export default useGames;
