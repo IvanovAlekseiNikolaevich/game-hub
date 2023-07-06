@@ -4,8 +4,6 @@ import {
   List,
   ListItem,
   Image,
-  Skeleton,
-  Stack,
   Button,
   Heading,
 } from "@chakra-ui/react";
