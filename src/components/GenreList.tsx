@@ -9,7 +9,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import getCroppedImages from "../services /api/image-url";
-import { Platform } from "../hooks/useGames";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
